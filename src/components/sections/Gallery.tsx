@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -35,19 +35,12 @@ const projects = [
 
 export default function Gallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isLoading, setIsLoading]= useState(true);
 
-  const next = useCallback(() => {
+  const next = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === projects.length - 1 ? 0 : prevIndex + 1
     );
-  }, [projects.length]);
-
-  // const next = () => {
-  //   setCurrentIndex((prevIndex) =>
-  //     prevIndex === projects.length - 1 ? 0 : prevIndex + 1
-  //   );
-  // };
+  };
 
   const prev = () => {
     setCurrentIndex((prevIndex) =>
@@ -90,7 +83,6 @@ export default function Gallery() {
                     fill
                     priority
                     className="object-cover"
-                    onLoadingComplete={() => setIsLoading(false)}
                   />
                  
                 

@@ -26,7 +26,7 @@ export default function About() {
               Offrir des solutions innovantes et durables en génie civil, génie électrique
               et fourniture de matériaux, en garantissant qualité, efficacité et respect
               des normes, afin de répondre aux besoins des entreprises et des particuliers
-              dans les secteurs du bâtiment, de l'agriculture et de l'élevage.
+              dans les secteurs du bâtiment, de l&apos;agriculture et de l&apos;élevage.
             </p>
           </motion.div>
 
