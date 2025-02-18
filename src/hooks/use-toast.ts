@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 // Inspired by react-hot-toast library
 import * as React from 'react';
+
 import type { ToastActionElement, ToastProps } from '@/components/ui/toast';
 
 const TOAST_LIMIT = 1;
@@ -13,7 +15,6 @@ type ToasterToast = ToastProps & {
   description?: React.ReactNode;
   action?: ToastActionElement;
 };
-
 
 const actionTypes = {
   ADD_TOAST: 'ADD_TOAST',
