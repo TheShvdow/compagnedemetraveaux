@@ -6,32 +6,8 @@ import { ThemeProvider } from '@/components/theme-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'CDT',
-  description: 'Solutions innovantes en génie civil et électrique',
-  viewport: { 
-    width: 'device-width',
-    initialScale: 1,
-  },
-  icons: {
-    icon: [
-      {
-        url: '/images/favicon/favicon-96x96.png',
-        sizes: '96x96',
-        type: 'image/png',
-      },
-      
-      {
-        url: '/images/favicon/web-app-manifest-512x512.png',
-        sizes: '512x512',
-        type: 'image/png',
-      },
-    ],
-    apple: {
-      url: '/images/favicon/apple-touch-icon.png',
-      sizes: '180x180',
-      type: 'image/png',
-    },
-  },
+  title: 'CDT - Compagnie Déme Traveaux',
+  description: 'Expert en génie civil, génie électrique et fourniture de matériaux',
 };
 
 export default function RootLayout({
