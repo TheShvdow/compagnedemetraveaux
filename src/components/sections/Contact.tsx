@@ -5,8 +5,45 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 export default function Contact() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const formData = {
+        name: (e.currentTarget.elements.namedItem('name') as HTMLInputElement).value,
+        email: (e.currentTarget.elements.namedItem('email') as HTMLInputElement).value,
+        message: (e.currentTarget.elements.namedItem('message') as HTMLInputElement).value,
+      };
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erreur réseau');
+      }
+
+      toast.success('Message envoyé avec succès !');
+      e.currentTarget.reset();
+    } catch (error) {
+      toast.error('Erreur lors de l\'envoi du message.');
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +78,7 @@ export default function Contact() {
                   Email
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  contact@cdt-africa.com
+                cdtsenegal@gmail.com
                 </p>
               </div>
             </div>
@@ -54,7 +91,7 @@ export default function Contact() {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                   Téléphone
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">+221 XX XXX XX XX</p>
+                <p className="text-gray-600 dark:text-gray-300">+221 77 352 63 08</p>
               </div>
             </div>
 
@@ -67,7 +104,7 @@ export default function Contact() {
                   Adresse
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Dakar, Sénégal
+                Rue de thiong , Dakar, Sénégal
                 </p>
               </div>
             </div>
@@ -79,6 +116,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="space-y-6"
+            onSubmit={handleSubmit}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -110,8 +148,8 @@ export default function Contact() {
                 className="min-h-[150px]"
               />
             </div>
-            <Button size="lg" className="w-full">
-              Envoyer le message
+            <Button type="submit" disabled={isLoading} size="lg" className="w-full bg-black hover:bg-black/80 dark:bg-white dark:hover:bg-white/80 dark:text-black text-white">
+              {isLoading ? 'Envoi en cours...' : 'Envoyer le message'}
             </Button>
           </motion.form>
         </div>
