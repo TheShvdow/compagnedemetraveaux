@@ -1,4 +1,6 @@
+
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -6,6 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
+            <Link href="/" className="text-2xl font-bold text-white">
             <h3 className="text-2xl font-bold text-white mb-4">
               <Image
                 src="/images/logo.png"
@@ -14,6 +17,7 @@ export default function Footer() {
                 height={100}
               />
             </h3>
+            </Link>
             <p className="text-gray-100 dark:text-white">
               Solutions innovantes en génie civil et électrique pour un avenir durable.
             </p>
