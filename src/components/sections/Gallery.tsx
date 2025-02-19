@@ -3,8 +3,8 @@
 import { useState , useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { BlurImage } from "@/components/ui/BlurImage";
 
 const projects = [
   {
@@ -87,11 +87,10 @@ export default function Gallery() {
                 className="relative aspect-video"
               >
                 
-                <Image
+                <BlurImage
                     src={projects[currentIndex].image}
                     alt={projects[currentIndex].title}
                     fill
-                    priority
                     className="object-cover"
                   />
                  
