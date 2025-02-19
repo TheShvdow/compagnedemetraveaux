@@ -1,8 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -10,7 +7,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { ChevronDown, Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,12 +28,12 @@ export default function Navbar() {
     { name: "Accueil", href: "/" },
     {
       name: "Services",
-      href: "#services",
+      href: "/#services",
       submenu: [
-        "Génie civil",
-        "Génie électrique",
-        "Prestation de services",
-        "Fourniture de matériaux",
+        { name: "Génie civil", href: "/services/genie_civil" },
+        { name: "Génie électrique", href: "/services/genie_electrique" },
+        { name: "Projet Agricole", href: "/services/agricole" },
+        { name: "Fourniture de matériaux", href: "/services/materiaux" },
       ],
     },
     { name: "À propos", href: "#about" },
@@ -70,16 +70,19 @@ export default function Navbar() {
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="flex items-center space-x-1"
+                      className="flex items-center space-x-1 "
                     >
                       {link.name} <ChevronDown className="h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     {link.submenu.map((item) => (
-                      <DropdownMenuItem key={item}>
-                        <Link href={`#${item.toLowerCase().replace(/ /g, "-")}`}>
-                          {item}
+                      <DropdownMenuItem 
+                        key={item.name} 
+                        className="hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer dark:bg-white/70 dark:text-gray-800 dark:hover:text-white bg-black/60 text-white hover:text-gray-800"
+                      >
+                        <Link href={item.href} className="block px-4 py-2">
+                          {item.name}
                         </Link>
                       </DropdownMenuItem>
                     ))}
@@ -89,7 +92,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors"
+                  className="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white transition-colors "
                 >
                   {link.name}
                 </Link>

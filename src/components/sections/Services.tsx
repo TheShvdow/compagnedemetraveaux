@@ -3,27 +3,32 @@
 import { motion } from "framer-motion";
 import { Building2, Zap, Wrench, Package } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import Link from "next/link";
 
 const services = [
   {
     title: "Génie Civil",
     description: "Construction, rénovation et expertise en infrastructures civiles",
     icon: Building2,
+    href: "/services/genie_civil", // Correspond au nom du dossier
   },
   {
     title: "Génie Électrique",
     description: "Solutions électriques innovantes pour tous vos projets",
     icon: Zap,
+    href: "/services/genie_electrique", // Correspond au nom du dossier
   },
   {
-    title: "Prestation de Services",
+    title: "Service Agricole",
     description: "Services professionnels adaptés à vos besoins spécifiques",
     icon: Wrench,
+    href: "/services/agricole", // Correspond au nom du dossier
   },
   {
     title: "Fourniture de Matériaux",
     description: "Matériaux de qualité pour l'électricité, l'agriculture et l'élevage",
     icon: Package,
+    href: "/services/materiaux", // Correspond au nom du dossier
   },
 ];
 
@@ -73,14 +78,15 @@ export default function Services() {
         </div>
 
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          {services.map((service) => (
-            <motion.div key={service.title} variants={itemVariants}>
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+      >
+        {services.map((service) => (
+          <motion.div key={service.title} variants={itemVariants}>
+            <Link href={service.href} className="block">
               <Card className="relative overflow-hidden group hover:shadow-lg transition-shadow duration-300">
                 <CardHeader className="space-y-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -92,9 +98,10 @@ export default function Services() {
                   </CardDescription>
                 </CardHeader>
               </Card>
-            </motion.div>
-          ))}
-        </motion.div>
+            </Link>
+          </motion.div>
+        ))}
+      </motion.div>
       </div>
     </section>
   );
