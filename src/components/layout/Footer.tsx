@@ -21,9 +21,9 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
             <address className="text-gray-800 not-italic dark:text-white">
-              <p>Dakar, Sénégal</p>
-              <p>contact@cdt-africa.com</p>
-              <p>+221 XX XXX XX XX</p>
+              <p>Rue de thiong , Dakar, Sénégal</p>
+              <p>Cdtsenegal@gmail.com</p>
+              <p>+221 77 352 63 08</p>
             </address>
           </div>
           <div>
