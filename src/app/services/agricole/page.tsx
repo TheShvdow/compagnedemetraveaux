@@ -139,7 +139,7 @@ export default function ProfessionalServicesPage() {
               Contactez-nous pour discuter de vos besoins spécifiques
             </p>
             <Button size="lg" asChild>
-              <Link href="/#contact">Nous Contacter</Link>
+              <Link className="bg-gray-900/90 text-gray-100 hover:border-gray-900 hover:bg-white hover:text-gray-900 hover:border-2 dark:bg-slate-100 dark:text-gray-900 dark:border-2 dark:border-slate-300" href="/#contact">Nous Contacter</Link>
             </Button>
           </div>
         </motion.div>

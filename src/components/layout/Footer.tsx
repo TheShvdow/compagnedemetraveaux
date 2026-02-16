@@ -57,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-100 mt-12 pt-8 text-center">
-          <p>&copy; {new Date().getFullYear()} CDT. Tous droits réservés. - Powered by <a href="https://portfolio-y9g8.onrender.com/" className="bg-gradient-to-r from-blue-600 to-cyan-600 text-transparent bg-clip-text hover:text-white transition-colors" target="_blank">TheShvdow</a> </p>
+          <p>&copy; {new Date().getFullYear()} CDT. Tous droits réservés. - Powered by <a href="https://pwww.gtech-senegal.com/" title="Gtech-Sénégal" className="bg-gradient-to-r from-blue-600 to-cyan-600 text-transparent bg-clip-text hover:text-white transition-colors" target="_blank">Gtech-Sénégal</a> </p>
         </div>
       </div>
     </footer>
